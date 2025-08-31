@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Shopping Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="header__title">🛒 Voice Shopping Assistant</h1>
+            <div class="header__status">
+                <span id="statusIndicator" class="status status--info">Ready</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Voice Input Section -->
+            <section class="voice-section">
+                <div class="voice-input">
+                    <button id="microphoneBtn" class="microphone-btn" aria-label="Start voice input">
+                        <svg class="microphone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 1c-1.66 0-3 1.34-3 3v8c0 1.66 1.34 3 3 3s3-1.34 3-3V4c0-1.66-1.34-3-3-3z"/>
+                            <path d="M19 10v2c0 3.87-3.13 7-7 7s-7-3.13-7-7v-2"/>
+                            <line x1="12" y1="19" x2="12" y2="23"/>
+                            <line x1="8" y1="23" x2="16" y2="23"/>
+                        </svg>
+                    </button>
+                    <div id="voiceStatus" class="voice-status">Tap to speak</div>
+                </div>
+                
+                <!-- Voice Feedback Display -->
+                <div id="voiceFeedback" class="voice-feedback">
+                    <div class="voice-feedback__content">
+                        <div id="recognizedText" class="recognized-text"></div>
+                        <div id="commandResult" class="command-result"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Shopping List Section -->
+                <section class="shopping-list-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Shopping List</h2>
+                        <button id="clearListBtn" class="clear-btn">Clear All</button>
+                    </div>
+                    <div id="shoppingList" class="shopping-list">
+                        <div class="empty-state">
+                            <p>Your shopping list is empty</p>
+                            <p class="empty-state__hint">Try saying "Add milk" or "I need bread"</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Smart Suggestions Section -->
+                <aside class="suggestions-section">
+                    <h3 class="section-title">Smart Suggestions</h3>
+                    <div id="suggestions" class="suggestions">
+                        <div class="suggestion-category">
+                            <h4 class="suggestion-category__title">Recommended for you</h4>
+                            <div class="suggestion-items">
+                                <!-- Suggestions will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Search Results Section -->
+            <section id="searchResults" class="search-results" style="display: none;">
+                <h3 class="section-title">Search Results</h3>
+                <div class="search-results__content">
+                    <!-- Search results will be populated here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Settings Panel -->
+        <aside id="settingsPanel" class="settings-panel">
+            <div class="settings-header">
+                <h3>Settings</h3>
+                <button id="closeSettings" class="close-btn">×</button>
+            </div>
+            <div class="settings-content">
+                <div class="setting-group">
+                    <label for="languageSelect">Voice Language:</label>
+                    <select id="languageSelect" class="setting-select">
+                        <option value="en-US">English (US)</option>
+                        <option value="en-GB">English (UK)</option>
+                        <option value="es-ES">Spanish</option>
+                        <option value="fr-FR">French</option>
+                        <option value="de-DE">German</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label for="voiceFeedback">Voice Feedback:</label>
+                    <input type="checkbox" id="voiceFeedback" checked>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Settings Button -->
+        <button id="settingsBtn" class="settings-btn" aria-label="Open settings">⚙️</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
